@@ -1,4 +1,4 @@
-![Icon](https://raw.github.com/Xamarin/Merq/main/icon/32.png) Merq
+![Icon](https://github.com/devlooped/Dynamically/raw/main/assets/img/32.png) Devlooped.Dynamically
 ================
 
 [![Version](https://img.shields.io/nuget/vpre/Devlooped.Dynamically.svg?color=royalblue)](https://www.nuget.org/packages/Devlooped.Dynamically)
@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/github/license/devlooped/Dynamically.svg?color=blue)](https://github.com/devlooped/Dynamically/blob/main/license.txt)
 
 <!-- #main -->
-Create record types from dynamic data with compatible structural shape.
+Create record types from dynamic data with a compatible structural shape.
 
 ## Usage
 
@@ -20,8 +20,8 @@ public record Line(Point Start, Point End);
 public record Drawing(Line[] Lines);
 ```
 
-This package allows you to create instances of those records from a data 
-object with compatible shape, such as:
+This project will generate a `Dynamically` class with a factory method to create instances 
+of those records from a data object with a compatible shape, such as:
 
 ```csharp
 var data = new
@@ -95,6 +95,8 @@ cheaper than going through any sort of serialization.
 As mentioned, the provided factories do not provide backwards-compatibility: if 
 you add a property or constructor argument to the record, the factory will fail 
 for payloads without it.
+
+<!-- #main -->
 
 <!-- #ci -->
 ## Dogfooding
