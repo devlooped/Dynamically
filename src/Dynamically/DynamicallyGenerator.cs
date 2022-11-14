@@ -28,10 +28,10 @@ public class DynamicallyGenerator : IIncrementalGenerator
     {
         // create a syntax provider that extracts the return type kind of method symbols
         var createdTypes = context.SyntaxProvider.CreateSyntaxProvider(
-            static (node, _) => 
-                node is InvocationExpressionSyntax invocation && 
-                invocation.Expression is MemberAccessExpressionSyntax member && 
-                member.Name.Identifier.Text == "Create" && 
+            static (node, _) =>
+                node is InvocationExpressionSyntax invocation &&
+                invocation.Expression is MemberAccessExpressionSyntax member &&
+                member.Name.Identifier.Text == "Create" &&
                 member.Name is GenericNameSyntax &&
                 member.Expression is IdentifierNameSyntax target &&
                 target.Identifier.Text == "Dynamically",
@@ -50,7 +50,7 @@ public class DynamicallyGenerator : IIncrementalGenerator
             {
                 var types = data.Left.Where(t => t != null).Distinct(SymbolEqualityComparer.Default)
                     .Select(t => t!.ToFullName(data.Right)).OrderBy(t => t).ToArray();
-                
+
                 var output = template.Render(new
                 {
                     Aliases = data.Right.References.SelectMany(x => x.Properties.Aliases).ToArray(),

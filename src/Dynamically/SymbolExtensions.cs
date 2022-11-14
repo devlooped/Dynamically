@@ -18,7 +18,7 @@ static class SymbolExtensions
     public static string ToFullName(this ISymbol symbol, Compilation compilation)
     {
         var fullName = symbol.ToDisplayString(fullNameFormat);
-        if (compilation.GetMetadataReference(symbol.ContainingAssembly) is MetadataReference reference && 
+        if (compilation.GetMetadataReference(symbol.ContainingAssembly) is MetadataReference reference &&
             !reference.Properties.Aliases.IsDefaultOrEmpty)
             return reference.Properties.Aliases.First() + "::" + fullName;
 

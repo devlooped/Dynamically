@@ -14,7 +14,7 @@ namespace Tests;
 public static class DynamicExtensions
 {
     public static dynamic With(this ExpandoObject expando, Action<dynamic> action)
-    { 
+    {
         action(expando);
         return expando;
     }
@@ -57,7 +57,7 @@ public record RecordFactories(ITestOutputHelper Output)
         Assert.Equal(100, b1.Lines[1].End.Y);
 
         var b2 = Dynamically.Create<Library2.Library.Drawing>(b1);
-        
+
         Assert.Equal(50, b2.Lines[0].Start.X);
         Assert.Equal(100, b2.Lines[1].End.Y);
     }
