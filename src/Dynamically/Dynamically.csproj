@@ -1,27 +1,41 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackFolder>analyzers/dotnet</PackFolder>
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <LangVersion>Preview</LangVersion>
-    <!-- See https://github.com/scriban/scriban#source-embedding -->
     <PackageScribanIncludeSource>true</PackageScribanIncludeSource>
     <SignAssembly>false</SignAssembly>
     <IsRoslynComponent>true</IsRoslynComponent>
   </PropertyGroup>
 
+  <PropertyGroup Label="NuGet">
+    <PackageId>Devlooped.Dynamically</PackageId>
+    <Title>Create record types from dynamic data with compatible structural shapes.</Title>
+    <Description>$(Title)</Description>
+    <PackageProjectUrl>https://github.com/devlooped/Dynamically</PackageProjectUrl>
+  </PropertyGroup>
+  
   <ItemGroup>
     <EmbeddedResource Include="DynamicallyCreate.sbntxt" />
     <EmbeddedResource Include="RecordFactory.sbntxt" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <Content Include="..\..\readme.md" Link="readme.md" PackagePath="readme.md" />
+  </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Pack="false" Version="4.3.1" />
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="Scriban" Pack="false" IncludeAssets="build" Version="5.5.0" />
-    <PackageReference Include="Superpower" PrivateAssets="all" Version="3.0.0" />
+    <PackageReference Include="NuGetizer" Version="0.9.0" />
+    <!-- Enable newer C# features in NS2 project -->
     <PackageReference Include="PolySharp" Pack="false" Version="1.7.1" />
+    <!-- CodeAnalysis itself doesn't need packing, Roslyn provides it at run-time -->
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Pack="false" Version="4.3.1" />
+    <!-- Let this pack as a dependency since we generate code using dynamic which depends on it. -->
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <!-- Scriban is included as source -->
+    <PackageReference Include="Scriban" Pack="false" IncludeAssets="build" Version="5.5.0" />
   </ItemGroup>
 
 </Project>

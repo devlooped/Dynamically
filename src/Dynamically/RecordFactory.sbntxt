@@ -3,7 +3,7 @@ func getValue(x)
    if x.Factory
       ret x.Factory + "(value." + x.Name + ")" + x.Convert
    else
-      ret "value." + x.Name
+      ret "(" + x.Type + ")" + "value." + x.Name
    end
 end
 ~}}

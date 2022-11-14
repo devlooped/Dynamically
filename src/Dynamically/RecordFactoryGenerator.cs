@@ -111,6 +111,7 @@ public class RecordFactoryGenerator : IIncrementalGenerator
                 .Select(x => new
                 {
                     x.Name,
+                    Type = x.Type.ToFullName(compilation),
                     Convert = GetConvert(x.Type),
                     Factory = GetFactory(x.Type, compilation),
                 })
@@ -128,6 +129,7 @@ public class RecordFactoryGenerator : IIncrementalGenerator
                 Parameters = ctor.Parameters.Select(x => new
                 {
                     x.Name,
+                    Type = x.Type.ToFullName(compilation),
                     Convert = GetConvert(x.Type),
                     Factory = GetFactory(x.Type, compilation),
                 }).ToArray(),
