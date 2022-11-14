@@ -1,5 +1,9 @@
 # Changelog
 
+## [v1.0.0](https://github.com/devlooped/Dynamically/tree/v1.0.0) (2022-11-14)
+
+[Full Changelog](https://github.com/devlooped/Dynamically/compare/v1.0.0-alpha...v1.0.0)
+
 ## [v1.0.0-alpha](https://github.com/devlooped/Dynamically/tree/v1.0.0-alpha) (2022-11-14)
 
 [Full Changelog](https://github.com/devlooped/Dynamically/compare/a7ef36a44763601ab4b81df41b912acffea7c084...v1.0.0-alpha)
