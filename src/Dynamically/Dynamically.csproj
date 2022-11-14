@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackFolder>analyzers/dotnet</PackFolder>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <LangVersion>Preview</LangVersion>
+    <!-- See https://github.com/scriban/scriban#source-embedding -->
+    <PackageScribanIncludeSource>true</PackageScribanIncludeSource>
+    <SignAssembly>false</SignAssembly>
+    <IsRoslynComponent>true</IsRoslynComponent>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="DynamicallyCreate.sbntxt" />
+    <EmbeddedResource Include="RecordFactory.sbntxt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Pack="false" Version="4.3.1" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Scriban" Pack="false" IncludeAssets="build" Version="5.5.0" />
+    <PackageReference Include="Superpower" PrivateAssets="all" Version="3.0.0" />
+    <PackageReference Include="PolySharp" Pack="false" Version="1.7.1" />
+  </ItemGroup>
+
+</Project>
