@@ -46,8 +46,8 @@ Drawing drawing = Dynamically.Create<Drawing>(data);
 
 In adition to a dynamic object (or an [ExpandoObject](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0), 
 for example), you can also pass in objects from other strongly typed values that come 
-from a different assembly, but that has the same structure. This allows fast in-memory 
-object mapping without any serialization or extra allocations.
+from a different assembly as long as it has the same structure. This allows fast 
+in-memory object mapping without any serialization or extra allocations.
 
 The factory works too for Newtonsoft.Json deserialized objects, for example:
 
@@ -57,6 +57,21 @@ dynamic data = JsonConvert.DeserializeObject(json);
 
 // Subsequently, you can turn it into your strongly-typed records:
 Drawing drawing = Dynamically.Create<Drawing>(data);
+```
+
+You can also optionally customize the mapping for specific records by providing accessible 
+static `Create` or `CreateMany` factory methods in your records, so you can 
+selectively customize the mapping by providing them as needed in specific cases. 
+For example:
+
+```csharp
+partial record Drawing
+{
+    // Customize creation of a single Drawing from a dynamic value
+    public static Drawing Create(dynamic value);
+    // Customize creation of a list of Drawings from a dynamic value
+    public static List<Drawing> CreateMany(dynamic value);
+}
 ```
 
 
@@ -84,6 +99,8 @@ partial record Drawing
 }
 ```
 
+> NOTE: these will only be provided if your record doesn't already have them.
+
 ## Limitations
 
 This package is not meant to be a full-fledged object mapper. For that, you can 
@@ -95,6 +112,8 @@ cheaper than going through any sort of serialization.
 As mentioned, the provided factories do not provide backwards-compatibility: if 
 you add a property or constructor argument to the record, the factory will fail 
 for payloads without it.
+
+
 
 <!-- #main -->
 
