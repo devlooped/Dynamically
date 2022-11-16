@@ -125,7 +125,7 @@ public class RecordFactoryGenerator : IIncrementalGenerator
                 FactoryName = data.Left.Name + "Factory",
                 TypeFullName = data.Left.ToFullName(compilation),
                 Factory = FindCreate(data.Left) is IMethodSymbol create &&
-                    compilation.IsSymbolAccessibleWithin(create, compilation.Assembly) ? data.Left.Name + ".Create" : null,
+                    compilation.IsSymbolAccessibleWithin(create, compilation.Assembly) ? data.Left.ToFullName(compilation) + ".Create" : null,
                 Parameters = ctor.Parameters.Select(x => new
                 {
                     x.Name,
