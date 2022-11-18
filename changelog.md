@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.0.2](https://github.com/devlooped/Dynamically/tree/v1.0.2) (2022-11-18)
+
+[Full Changelog](https://github.com/devlooped/Dynamically/compare/v1.0.1...v1.0.2)
+
+:sparkles: Implemented enhancements:
+
+- Fix support for aliased references [\#10](https://github.com/devlooped/Dynamically/pull/10) (@kzu)
+
 ## [v1.0.1](https://github.com/devlooped/Dynamically/tree/v1.0.1) (2022-11-16)
 
 [Full Changelog](https://github.com/devlooped/Dynamically/compare/v1.0.0...v1.0.1)
@@ -11,7 +19,6 @@
 :twisted_rightwards_arrows: Merged:
 
 - Bump test dependencies [\#5](https://github.com/devlooped/Dynamically/pull/5) (@kzu)
-- +Mᐁ includes [\#4](https://github.com/devlooped/Dynamically/pull/4) (@devlooped-bot)
 
 
 
