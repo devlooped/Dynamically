@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using static Microsoft.CodeAnalysis.CSharp.SyntaxFactory;
 
 namespace Microsoft.CodeAnalysis;
 
@@ -12,12 +13,27 @@ static class SymbolExtensions
         genericsOptions: SymbolDisplayGenericsOptions.IncludeTypeParameters,
         miscellaneousOptions: SymbolDisplayMiscellaneousOptions.ExpandNullable);
 
+    static readonly SymbolDisplayFormat nonGenericFormat = new(
+        typeQualificationStyle: SymbolDisplayTypeQualificationStyle.NameAndContainingTypesAndNamespaces,
+        genericsOptions: SymbolDisplayGenericsOptions.None,
+        miscellaneousOptions: SymbolDisplayMiscellaneousOptions.ExpandNullable);
+
     public static string ToAssemblyNamespace(this INamespaceSymbol symbol)
         => symbol.ContainingAssembly.Name + "." + symbol.ToDisplayString(fullNameFormat);
 
     public static string ToFullName(this ISymbol symbol, Compilation compilation)
     {
-        var fullName = symbol.ToDisplayString(fullNameFormat);
+        var fullName = symbol.ToDisplayString(nonGenericFormat);
+
+        if (symbol is INamedTypeSymbol named && named.IsGenericType)
+        {
+            // Need to do ToFullName for each generic parameter.
+            var genericArguments = named.TypeArguments.Select(t => t.ToFullName(compilation));
+            fullName = GenericName(fullName).WithTypeArgumentList(
+                    TypeArgumentList(SeparatedList<TypeSyntax>(genericArguments.Select(IdentifierName))))
+                .ToString();
+        }
+
         if (compilation.GetMetadataReference(symbol.ContainingAssembly) is MetadataReference reference &&
             !reference.Properties.Aliases.IsDefaultOrEmpty)
             return reference.Properties.Aliases.First() + "::" + fullName;
