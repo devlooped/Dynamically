@@ -35,7 +35,7 @@
     <!-- Let this pack as a dependency since we generate code using dynamic which depends on it. -->
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <!-- Scriban is included as source -->
-    <PackageReference Include="Scriban" Pack="false" IncludeAssets="build" Version="5.5.0" />
+    <PackageReference Include="Scriban" Pack="false" IncludeAssets="build" Version="5.5.2" />
   </ItemGroup>
 
 </Project>
