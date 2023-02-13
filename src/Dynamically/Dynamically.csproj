@@ -27,7 +27,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="NuGetizer" Version="0.9.1" />
+    <PackageReference Include="NuGetizer" Version="0.9.2" />
     <!-- Enable newer C# features in NS2 project -->
     <PackageReference Include="PolySharp" Pack="false" Version="1.8.0" />
     <!-- CodeAnalysis itself doesn't need packing, Roslyn provides it at run-time -->
