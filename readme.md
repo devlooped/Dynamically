@@ -101,6 +101,114 @@ partial record Drawing
 
 > NOTE: these will only be provided if your record doesn't already have them.
 
+### Example
+
+For the above example with `Drawing/Line/Point` records, you'd get a generated 
+`Dynamically` type like:
+
+```csharp
+static partial class Dynamically
+{
+    public static partial T Create<T>(dynamic data)
+    {
+        return typeof(T) switch
+        {
+            Type t when t == typeof(Drawing) => (T)Drawing.Create(data),
+            _ => throw new NotSupportedException(),
+        };
+    }
+}
+```
+
+If the `Drawing` record was partial, the `Create` method would look like:
+
+```csharp
+    partial record Drawing
+    {
+        public static Drawing Create(dynamic value)
+            => DrawingFactory.Create(value);
+    }
+```
+
+With the `DrawingFactory` class being generated as:
+
+```csharp
+static partial class DrawingFactory
+{
+    public static Drawing Create(dynamic value)
+    {
+        if (value is null)
+            throw new ArgumentNullException(nameof(value));
+
+        try
+        {
+            return new Drawing(Line.CreateMany(value.Lines));
+        }
+        catch (RuntimeBinderException e)
+        {
+            var valueAsm = ((object)value).GetType().Assembly.GetName();
+            var thisAsm = typeof(DrawingFactory).Assembly.GetName();
+            throw new ArgumentException(
+                $"Incompatible {nameof(Drawing)} value. Cannot convert value from '{valueAsm.Name}, Version={valueAsm.Version}' to '{thisAsm.Name}, Version={thisAsm.Version}'.",
+                nameof(value), e);
+        }
+    }
+
+    public static List<Drawing> CreateMany(dynamic value)
+    {
+        var result = new List<Drawing>();
+        foreach (var item in value)
+        {
+            result.Add(Create(item));
+        }
+        return result;
+    }
+}
+```
+
+The `Line` factory method would look very similar, instantiating a many points, 
+with perhaps `Point` being the most interesting:
+
+```csharp
+static partial class PointFactory
+{
+    public static Point Create(dynamic value)
+    {
+        if (value is null)
+            throw new ArgumentNullException(nameof(value));
+
+        try
+        {
+            return new Point((global::System.Int32)value.X, (global::System.Int32)value.Y);
+        }
+        catch (RuntimeBinderException e)
+        {
+            var valueAsm = ((object)value).GetType().Assembly.GetName();
+            var thisAsm = typeof(PointFactory).Assembly.GetName();
+            throw new ArgumentException(
+                $"Incompatible {nameof(Point)} value. Cannot convert value from '{valueAsm.Name}, Version={valueAsm.Version}' to '{thisAsm.Name}, Version={thisAsm.Version}'.",
+                nameof(value), e);
+        }
+    }
+
+    public static List<Point> CreateMany(dynamic value)
+    {
+        var result = new List<Point>();
+        foreach (var item in value)
+        {
+            result.Add(Create(item));
+        }
+        return result;
+    }
+}
+```
+
+As you can see, the factory methods are very simple and straightforward, and have 
+great run-time performance characteristics since there is absolutely no reflection, 
+and the built-in C# dynamic infrastructure takes care of doing the heavy lifting. 
+The generated code is basically what you'd write manually to do the casting of the 
+entire object hierarchy.
+
 ## Limitations
 
 This package is not meant to be a full-fledged object mapper. For that, you can 
