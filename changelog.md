@@ -1,5 +1,17 @@
 # Changelog
 
+## [v1.0.3](https://github.com/devlooped/Dynamically/tree/v1.0.3) (2023-02-18)
+
+[Full Changelog](https://github.com/devlooped/Dynamically/compare/v1.0.2...v1.0.3)
+
+:sparkles: Implemented enhancements:
+
+- 💜 Bump SponsorLink for better privacy [\#26](https://github.com/devlooped/Dynamically/pull/26) (@kzu)
+
+:twisted_rightwards_arrows: Merged:
+
+- ⛙ ⬆️ Bump dependencies [\#23](https://github.com/devlooped/Dynamically/pull/23) (@github-actions[bot])
+
 ## [v1.0.2](https://github.com/devlooped/Dynamically/tree/v1.0.2) (2022-11-18)
 
 [Full Changelog](https://github.com/devlooped/Dynamically/compare/v1.0.1...v1.0.2)
