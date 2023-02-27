@@ -33,7 +33,7 @@
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <!-- Scriban is included as source -->
     <PackageReference Include="Scriban" Pack="false" IncludeAssets="build" Version="5.6.0" />
-    <PackageReference Include="Devlooped.SponsorLink" Version="0.9.6" PackInclude="build,analyzers" PackExclude="compile,native,runtime" />
+    <PackageReference Include="Devlooped.SponsorLink" Version="0.9.9" PackInclude="build,analyzers" PackExclude="compile,native,runtime" />
     <PackageReference Include="ThisAssembly.AssemblyInfo" Version="1.2.8" PrivateAssets="all" Pack="false" />
     <PackageReference Include="ThisAssembly.Project" Version="1.2.8" PrivateAssets="all" Pack="false" />
   </ItemGroup>
