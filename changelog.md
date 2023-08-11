@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.1.0](https://github.com/devlooped/Dynamically/tree/v1.1.0) (2023-08-11)
+
+[Full Changelog](https://github.com/devlooped/Dynamically/compare/v1.0.3...v1.1.0)
+
+:twisted_rightwards_arrows: Merged:
+
+- Remove current implementation of SponsorLink for now [\#36](https://github.com/devlooped/Dynamically/pull/36) (@kzu)
+
 ## [v1.0.3](https://github.com/devlooped/Dynamically/tree/v1.0.3) (2023-02-18)
 
 [Full Changelog](https://github.com/devlooped/Dynamically/compare/v1.0.2...v1.0.3)
