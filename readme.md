@@ -6,7 +6,8 @@
 [![License](https://img.shields.io/github/license/devlooped/Dynamically.svg?color=blue)](https://github.com/devlooped/Dynamically/blob/main/license.txt)
 
 <!-- #main -->
-Create record types from dynamic data with a compatible structural shape.
+Instantiate record types from dynamic data with compatible structural shapes, 
+in-memory with no reflection or serialization, via compile-time source generators.
 
 ## Usage
 

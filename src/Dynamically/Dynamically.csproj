@@ -12,7 +12,7 @@
 
   <PropertyGroup Label="NuGet">
     <PackageId>Devlooped.Dynamically</PackageId>
-    <Title>Instantiate record types from dynamic data with compatible structural shapes, in-memory with no reflection or serialization.</Title>
+    <Title>Instantiate record types from dynamic data with compatible structural shapes, in-memory with no reflection or serialization, via compile-time source generators.</Title>
     <Description>$(Title)</Description>
     <PackageProjectUrl>https://github.com/devlooped/Dynamically</PackageProjectUrl>
   </PropertyGroup>
