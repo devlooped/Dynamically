@@ -26,6 +26,12 @@ public class DynamicallyGenerator : IIncrementalGenerator
 
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
+        static bool IsDynamically(ExpressionSyntax expression)
+            => expression is IdentifierNameSyntax identifier && identifier.Identifier.Text == "Dynamically";
+
+        static bool IsAliasedDynamically(ExpressionSyntax expression)
+            => expression is AliasQualifiedNameSyntax aliased && aliased.Name.Identifier.Text == "Dynamically";
+
         // create a syntax provider that extracts the return type kind of method symbols
         var createdTypes = context.SyntaxProvider.CreateSyntaxProvider(
             static (node, _) =>
@@ -33,8 +39,7 @@ public class DynamicallyGenerator : IIncrementalGenerator
                 invocation.Expression is MemberAccessExpressionSyntax member &&
                 member.Name.Identifier.Text == "Create" &&
                 member.Name is GenericNameSyntax &&
-                member.Expression is IdentifierNameSyntax target &&
-                target.Identifier.Text == "Dynamically",
+                (IsDynamically(member.Expression) || IsAliasedDynamically(member.Expression)),
             static (context, cancellation) =>
             {
                 var invocation = (InvocationExpressionSyntax)context.Node;

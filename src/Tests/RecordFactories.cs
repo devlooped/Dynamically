@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -56,7 +55,8 @@ public record RecordFactories(ITestOutputHelper Output)
         Assert.Equal(50, b1.Lines[0].Start.X);
         Assert.Equal(100, b1.Lines[1].End.Y);
 
-        var b2 = Dynamically.Create<Library2.Library.Drawing>(b1);
+        // can use global alias for Lib2
+        var b2 = global::Dynamically.Create<Library2.Library.Drawing>(b1);
 
         Assert.Equal(50, b2.Lines[0].Start.X);
         Assert.Equal(100, b2.Lines[1].End.Y);
@@ -65,17 +65,18 @@ public record RecordFactories(ITestOutputHelper Output)
     [Fact]
     public void CanMapFromLibraryType()
     {
-        var data = new Library1::Library.Drawing(new[]
-        {
+        var data = new Library1::Library.Drawing(
+        [
             new Library1::Library.Line(
                 new Library1::Library.Point(0, 0),
                 new Library1::Library.Point(100, 0)),
             new Library1::Library.Line(
                 new Library1::Library.Point(0, 0),
                 new Library1::Library.Point(0, 100))
-        });
+        ]);
 
-        var buffer = Dynamically.Create<Library2.Library.Drawing>(data);
+        // can use global alias for Lib2
+        var buffer = global::Dynamically.Create<Library2.Library.Drawing>(data);
 
         //Assert.Equal(100, buffer.Lines[0].End.X);
         //Assert.Equal(100, buffer.Lines[1].End.Y);
@@ -102,7 +103,7 @@ public record RecordFactories(ITestOutputHelper Output)
         };
 
         var json = JsonConvert.SerializeObject(data);
-        dynamic obj = JsonConvert.DeserializeObject(json);
+        dynamic obj = JsonConvert.DeserializeObject(json)!;
 
         // The dynamic works here because the anonymous type from above lives in the 
         // same assembly as our BufferFactory for our local type. This is not the case 
@@ -118,7 +119,8 @@ public record RecordFactories(ITestOutputHelper Output)
         Assert.Equal(50, b1.Lines[0].Start.X);
         Assert.Equal(100, b1.Lines[1].End.Y);
 
-        var b2 = Dynamically.Create<Library2.Library.Drawing>(obj);
+        // can use global alias for Lib2
+        var b2 = global::Dynamically.Create<Library2.Library.Drawing>(obj);
 
         Assert.Equal(50, b2.Lines[0].Start.X);
         Assert.Equal(100, b2.Lines[1].End.Y);
