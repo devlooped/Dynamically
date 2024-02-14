@@ -229,12 +229,12 @@ for payloads without it.
 <!-- #ci -->
 ## Dogfooding
 
-[![CI Version](https://img.shields.io/endpoint?url=https://shields.kzu.io/vpre/Devlooped.Dynamically/main&label=nuget.ci&color=brightgreen)](https://pkg.kzu.io/index.json)
+[![CI Version](https://img.shields.io/endpoint?url=https://shields.kzu.app/vpre/Devlooped.Dynamically/main&label=nuget.ci&color=brightgreen)](https://pkg.kzu.app/index.json)
 [![Build](https://github.com/devlooped/Dynamically/workflows/build/badge.svg?branch=main)](https://github.com/devlooped/Dynamically/actions)
 
 We also produce CI packages from branches and pull requests so you can dogfood builds as quickly as they are produced. 
 
-The CI feed is `https://pkg.kzu.io/index.json`. 
+The CI feed is `https://pkg.kzu.app/index.json`. 
 
 The versioning scheme for packages is:
 
