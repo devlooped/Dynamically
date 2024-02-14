@@ -1,5 +1,17 @@
 # Changelog
 
+## [v1.1.1](https://github.com/devlooped/Dynamically/tree/v1.1.1) (2024-02-14)
+
+[Full Changelog](https://github.com/devlooped/Dynamically/compare/v1.1.0...v1.1.1)
+
+:sparkles: Implemented enhancements:
+
+- Add support for aliased namespace [\#39](https://github.com/devlooped/Dynamically/pull/39) (@kzu)
+
+:bug: Fixed bugs:
+
+- When using global:: alias for Dynamically, generators don't work [\#38](https://github.com/devlooped/Dynamically/issues/38)
+
 ## [v1.1.0](https://github.com/devlooped/Dynamically/tree/v1.1.0) (2023-08-11)
 
 [Full Changelog](https://github.com/devlooped/Dynamically/compare/v1.0.3...v1.1.0)
