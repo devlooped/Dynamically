@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="PolySharp" Pack="false" Version="1.12.1" />
+    <PackageReference Include="PolySharp" Pack="false" Version="1.14.1" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <!-- In a regular scenario where we just reference Dynamically as a package, this would come as a dependency -->
     <PackageReference Include="Devlooped.SponsorLink" Version="0.9.6" PackInclude="build,analyzers" PackExclude="compile,native,runtime" />
