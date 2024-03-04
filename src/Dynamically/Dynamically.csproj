@@ -36,7 +36,7 @@
     <!-- Enable newer C# features in NS2 project -->
     <PackageReference Include="PolySharp" Pack="false" Version="1.14.1" />
     <!-- CodeAnalysis itself doesn't need packing, Roslyn provides it at run-time -->
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Pack="false" Version="4.3.1" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Pack="false" Version="4.9.2" />
     <!-- Let this pack as a dependency since we generate code using dynamic which depends on it. -->
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <!-- Scriban is included as source -->
