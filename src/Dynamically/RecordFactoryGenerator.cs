@@ -103,7 +103,8 @@ public class RecordFactoryGenerator : IIncrementalGenerator
                 }
 
                 return null;
-            };
+            }
+            ;
 
             // Get properties that can be set and are not named (case insensitive) as ctor parameters
             var properties = data.Left.GetMembers().OfType<IPropertySymbol>()
