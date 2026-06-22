@@ -6,6 +6,7 @@
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <LangVersion>Preview</LangVersion>
     <PackageScribanIncludeSource>true</PackageScribanIncludeSource>
+    <PolySharpIncludeRuntimeSupportedAttributes>true</PolySharpIncludeRuntimeSupportedAttributes>
     <SignAssembly>false</SignAssembly>
     <IsRoslynComponent>true</IsRoslynComponent>
   </PropertyGroup>
