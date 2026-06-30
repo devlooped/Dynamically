@@ -40,7 +40,7 @@
     <!-- Let this pack as a dependency since we generate code using dynamic which depends on it. -->
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <!-- Scriban is included as source -->
-    <PackageReference Include="Scriban" Pack="false" IncludeAssets="build" Version="7.2.0" />
+    <PackageReference Include="Scriban" Pack="false" IncludeAssets="build" Version="7.2.1" />
     <!--<PackageReference Include="Devlooped.SponsorLink" Version="0.9.6" PackInclude="build,analyzers" PackExclude="compile,native,runtime" />-->
     <PackageReference Include="ThisAssembly.AssemblyInfo" Version="2.1.2" PrivateAssets="all" Pack="false" />
     <PackageReference Include="ThisAssembly.Project" Version="2.1.2" PrivateAssets="all" Pack="false" />
