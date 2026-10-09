@@ -32,18 +32,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="NuGetizer" Version="1.2.1" />
+    <PackageReference Include="NuGetizer" Version="1.5.0" />
     <!-- Enable newer C# features in NS2 project -->
     <PackageReference Include="PolySharp" Pack="false" Version="1.16.0" />
     <!-- CodeAnalysis itself doesn't need packing, Roslyn provides it at run-time -->
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Pack="false" Version="4.3.1" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Pack="false" Version="5.9.0" />
     <!-- Let this pack as a dependency since we generate code using dynamic which depends on it. -->
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <!-- Scriban is included as source -->
-    <PackageReference Include="Scriban" Pack="false" IncludeAssets="build" Version="7.2.0" />
+    <PackageReference Include="Scriban" Pack="false" IncludeAssets="build" Version="7.4.0" />
     <!--<PackageReference Include="Devlooped.SponsorLink" Version="0.9.6" PackInclude="build,analyzers" PackExclude="compile,native,runtime" />-->
-    <PackageReference Include="ThisAssembly.AssemblyInfo" Version="2.1.2" PrivateAssets="all" Pack="false" />
-    <PackageReference Include="ThisAssembly.Project" Version="2.1.2" PrivateAssets="all" Pack="false" />
+    <PackageReference Include="ThisAssembly.AssemblyInfo" Version="2.1.5" PrivateAssets="all" Pack="false" />
+    <PackageReference Include="ThisAssembly.Project" Version="2.1.5" PrivateAssets="all" Pack="false" />
   </ItemGroup>
 
   <ItemGroup>
