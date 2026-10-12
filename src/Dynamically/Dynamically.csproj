@@ -32,7 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="NuGetizer" Version="1.5.0" />
+    <PackageReference Include="NuGetizer" Version="1.5.1" />
     <!-- Enable newer C# features in NS2 project -->
     <PackageReference Include="PolySharp" Pack="false" Version="1.16.0" />
     <!-- CodeAnalysis itself doesn't need packing, Roslyn provides it at run-time -->
