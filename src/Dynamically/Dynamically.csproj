@@ -34,7 +34,7 @@
   <ItemGroup>
     <PackageReference Include="NuGetizer" Version="1.5.0" />
     <!-- Enable newer C# features in NS2 project -->
-    <PackageReference Include="PolySharp" Pack="false" Version="1.16.0" />
+    <PackageReference Include="PolySharp" Pack="false" Version="1.17.1" />
     <!-- CodeAnalysis itself doesn't need packing, Roslyn provides it at run-time -->
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Pack="false" Version="5.0.0" />
     <!-- Let this pack as a dependency since we generate code using dynamic which depends on it. -->
